@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "uPZCu08f9ug=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\yamada\\source\\repos\\vue-kintai\\vue-kintai\\vue-kintai.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\yamada\\.nuget\\packages\\microsoft.net.sdk.compilers.toolset\\9.0.301\\microsoft.net.sdk.compilers.toolset.9.0.301.nupkg.sha512"
+  ],
+  "logs": []
+}
