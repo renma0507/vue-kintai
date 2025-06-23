@@ -1,23 +1,17 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import List from './components/List.vue'
+import Clook from './components/Clock.vue'
+import Log from './components/Log.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+ 
+  <List/>
+  <Clook/>
+  <log/>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
 </template>
 
 <style scoped>
@@ -82,4 +76,5 @@ nav a:first-of-type {
     margin-top: 1rem;
   }
 }
+
 </style>
