@@ -4,3 +4,4 @@ vue-test1-2d4c2-firebase-adminsdk-fbsvc-f95bf5bb51.json/
 # Firebase secret key
 **/*.json
 !appsettings.json
+app.db
