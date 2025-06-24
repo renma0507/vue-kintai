@@ -1,1 +1,96 @@
-[]
+[
+  {
+    "ContainingType": "vue_kintai.Controllers.AttendTimeController",
+    "Method": "Get",
+    "RelativePath": "vue-kintai / AttendTime",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[vue_kintai.Models.AttendTime, vue-kintai, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "vue_kintai.Controllers.AttendTimeController",
+    "Method": "Post",
+    "RelativePath": "vue-kintai / AttendTime",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "attendTime",
+        "Type": "vue_kintai.Models.AttendTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "vue_kintai.Controllers.AttendTimeController",
+    "Method": "Delete",
+    "RelativePath": "vue-kintai / AttendTime",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "vue_kintai.Controllers.UserController",
+    "Method": "GetAll",
+    "RelativePath": "vue-kintai / User",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "vue_kintai.Controllers.UserController",
+    "Method": "Create",
+    "RelativePath": "vue-kintai / User",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "vue_kintai.Models.User",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "vue_kintai.Controllers.UserController",
+    "Method": "Delete",
+    "RelativePath": "vue-kintai / User",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

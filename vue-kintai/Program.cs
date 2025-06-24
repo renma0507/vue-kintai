@@ -1,30 +1,30 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 using vue_kintai.Data;
-using Google.Apis.Auth.OAuth2;
-using Google.Cloud.Firestore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Firebase�v���W�F�N�gID�̎擾
-string projectId = builder.Configuration["vue-test1-2d4c2"];
-
-// FirestoreDb��DI�o�^
-builder.Services.AddSingleton(provider => {
-    var credential = GoogleCredential.GetApplicationDefault();
-    return new FirestoreDbBuilder
+// コントローラーとJSON循環参照許可設定を登録
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
     {
-        ProjectId = projectId,
-        Credential = credential
-    }.Build();
-});
+        // 循環参照（User → AttendTime → User...）を許可する設定
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+    });
 
-// Firebase�p�̃T�[�r�X�N���X��o�^
-builder.Services.AddScoped< FirebaseDataService>();
 
-// �c��̐ݒ�i�����j
-builder.Services.AddControllers();
+// 🔧 SQLiteデータベースを使用するように設定（app.db というファイルに保存される）
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlite("Data Source=app.db"));
+
+
+// Add services to the container.
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddControllers();             // コントローラー機能
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
-// CORS�|���V�[�i�ύX�Ȃ��j
+// 🔓 CORSポリシーの定義：Vue.js（http://localhost:5173）からのアクセスを許可
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowVueApp",
@@ -35,19 +35,30 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// �ݒ�i�ύX�Ȃ��j
+// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseCors("AllowVueApp");
+
 app.MapControllers();
 
-// Firebase�̏������i�K�v�ɉ����āj
-//using (var scope = app.Services.CreateScope())
-//{
-//    var service = scope.ServiceProvider.GetRequiredService<IDataService>();
-//}
+// DB初期化（マイグレーション不要、テーブル作成＆初期データ登録）
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.EnsureCreated();
+    SeedData_User.Initialize(db);
+
+}
+
 
 app.Run();
+
+internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
+{
+    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+}
