@@ -12,14 +12,9 @@ import Button4 from './components/Button4.vue'
 </script>
 
 <template>
- 
-  <List/>
-  <Clook/>
-  <log/>
-  <Button/>
-  <Button2/>
-  <Button3/>
-  <Button4/>
+  
+  
+<link><RouterLink to ="/Home">ホーム画面へ</RouterLink></link>
 <link><RouterLink to="/kanri">管理画面へ</RouterLink></link>
 <RouterView/>
 </template>
