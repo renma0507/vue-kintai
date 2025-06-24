@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("vue-kintai")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+75236ae512f07a7275d3d8a26d0572b9c2d61e68")]
 [assembly: System.Reflection.AssemblyProductAttribute("vue-kintai")]
 [assembly: System.Reflection.AssemblyTitleAttribute("vue-kintai")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
