@@ -4,6 +4,11 @@ import HelloWorld from './components/HelloWorld.vue'
 import List from './components/List.vue'
 import Clook from './components/Clock.vue'
 import Log from './components/Log.vue'
+import Button from './components/Button.vue'
+import Button2 from './components/Button2.vue'
+import Button3 from './components/Button3.vue'
+import Button4 from './components/Button4.vue'
+
 </script>
 
 <template>
@@ -11,7 +16,12 @@ import Log from './components/Log.vue'
   <List/>
   <Clook/>
   <log/>
-
+  <Button/>
+  <Button2/>
+  <Button3/>
+  <Button4/>
+<link><RouterLink to="/kanri">管理画面へ</RouterLink></link>
+<RouterView/>
 </template>
 
 <style scoped>
