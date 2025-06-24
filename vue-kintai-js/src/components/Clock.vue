@@ -32,12 +32,13 @@ export default {
 
 <style scoped>
 .clock-container {
-  position: fixed;
-  top: 40px;
-  left: calc( 40％＋50px);
-  transform: translateX(-50%);
-  z-index: 9999;
-  pointer-events: none;
+ position: fixed;
+top: 40px;
+left: 50%;
+transform: translateX(-50%);
+z-index: 9999;
+pointer-events: none;
+
 }
 
 .clock-time {
