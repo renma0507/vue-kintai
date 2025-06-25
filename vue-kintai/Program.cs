@@ -4,7 +4,7 @@ using vue_kintai.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// コントローラーとJSON循環参照許可設定を登録
+//コントローラーとJSON循環参照許可設定を登録
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
