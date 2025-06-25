@@ -62,9 +62,9 @@
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\yu.terauchi\\Desktop\\vue-kintai\\vue-kintai\\Program.cs",
               "RelativeDocumentMoniker": "vue-kintai\\Program.cs",
-              "ToolTip": "C:\\Users\\yu.terauchi\\Desktop\\vue-kintai\\vue-kintai\\Program.cs*",
-              "RelativeToolTip": "vue-kintai\\Program.cs*",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAACwAAAAbAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\yu.terauchi\\Desktop\\vue-kintai\\vue-kintai\\Program.cs",
+              "RelativeToolTip": "vue-kintai\\Program.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAADkAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-24T06:00:21.865Z",
               "EditorCaption": ""
@@ -79,8 +79,7 @@
               "RelativeToolTip": "vue-kintai\\Models\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T06:00:18.315Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T06:00:18.315Z"
             },
             {
               "$type": "Document",
@@ -92,8 +91,7 @@
               "RelativeToolTip": "vue-kintai\\Models\\AttendTime.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T06:00:05.625Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T06:00:05.625Z"
             },
             {
               "$type": "Document",
@@ -105,8 +103,7 @@
               "RelativeToolTip": "vue-kintai\\Data\\SeedData_User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T05:59:43.651Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T05:59:43.651Z"
             },
             {
               "$type": "Document",
@@ -118,8 +115,7 @@
               "RelativeToolTip": "vue-kintai\\Data\\AppDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T05:59:21.655Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T05:59:21.655Z"
             },
             {
               "$type": "Document",
@@ -131,8 +127,7 @@
               "RelativeToolTip": "vue-kintai\\Controllers\\UserController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T05:58:11.496Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T05:58:11.496Z"
             },
             {
               "$type": "Document",
@@ -144,8 +139,7 @@
               "RelativeToolTip": "vue-kintai\\Controllers\\AttendTimeController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T05:57:31.135Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T05:57:31.135Z"
             }
           ]
         },
