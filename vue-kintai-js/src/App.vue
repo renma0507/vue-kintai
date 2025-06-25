@@ -11,13 +11,18 @@ import Button4 from './components/Button4.vue'
 
 </script>
 
+
+  
+  
 <template>
-  
-  
-<link><RouterLink to ="/Home">ホーム画面へ</RouterLink></link>
-<link><RouterLink to="/kanri">管理画面へ</RouterLink></link>
-<RouterView/>
+  <div class="link-container">
+    <link class="linklink"><RouterLink to="/Home">ホーム画面へ</RouterLink></link>
+    <link class="linklink"><RouterLink to="/kanri">管理画面へ</RouterLink></link>
+  </div>
+  <RouterView/>
 </template>
+
+
 
 <style scoped>
 header {
@@ -81,5 +86,17 @@ nav a:first-of-type {
     margin-top: 1rem;
   }
 }
+
+.link-container {
+  
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  gap: 50px;
+  transform: translateX(-50%);
+  z-index: 1000;
+  white-space: nowrap;
+}
+
 
 </style>
