@@ -1,41 +1,49 @@
+
+<script setup>
+import { ref, computed ,onMounted} from 'vue'
+import axios  from 'axios'
+
+// 社員データ
+const employees = ref([])
+
+const selectedName = ref('')
+
+const getData = async () => {
+  try{
+  const res = await axios.get('https://localhost:55925/vue-kintai / User')
+  employees.value = res.data.$values//結果を表示用に代入
+  console.log('データの取得に成功しました:', employees.value)
+} catch (error) {
+  console.error('データの取得に失敗しました:', error)
+  }
+
+}
+
+const selectedEmployee = computed(() => {
+  if (!Array.isArray(employees.value)) return null
+  return employees.value.find(emp => emp.name === selectedName.value)
+})
+
+onMounted(getData)
+</script>
+
 <template>
   <div class="employee-select">
     <h1>社員リスト</h1>
     <div class="custom-select-wrapper">
       <select v-model="selectedName" size="10">
-        <option v-for="emp in employees" :key="emp.employee" :value="emp.name">
+        <option v-for="emp in employees" :key="emp.id" >
           {{ emp.name }}
         </option>
       </select>
     </div>
     <div v-if="selectedEmployee" class="employee-info">
-      <p>雇用形態: {{ selectedEmployee.employee }}</p>
+      <p>雇用形態: {{ selectedEmployee.name }}</p>
     </div>
   </div>
+
 </template>
 
-<script setup>
-import { ref, computed } from 'vue'
-
-// 社員データ
-const employees = ref([
-  { name: '山田 太郎',employee: '正社員' },
-  { name: '山田 太郎',employee: '正社員' },
-  { name: '山田 太郎',employee: '正社員' },
-  { name: '佐藤次郎',employee: 'アルバイト' },
-  { name: '山田 太郎',employee: '正社員' },
-  { name: '山田 太郎',employee: '正社員' },
-  { name: '山田 太郎',employee: '正社員' },
-  { name: '山田 太郎',employee: '正社員' },
-
-])
-
-const selectedName = ref('')
-
-const selectedEmployee = computed(() =>
-  employees.value.find(emp => emp.name === selectedName.value)
-)
-</script>
 
 <style scoped>
 body {
@@ -50,7 +58,7 @@ h1{
   left: 0;
   height: 600vh;              
   width: 300px;               
-  background-color: gray;
+  background-color: #999;
   border-right: 2px solid #f9f9f9;
   padding: 1rem;
   box-sizing: border-box;
@@ -61,7 +69,7 @@ h1{
   width: 100%;
   height: 100%;
   font-size: 1.2rem;
-  border: 1px solid #999;
+  border: 1px solid #560ba1;
   border: 4px;
 }
 
@@ -71,6 +79,9 @@ h1{
   padding: 0.8rem;
   border: 10px solid red;
   border: 10px;
+}
+select{
+color: rgb(0, 0, 0);
 }
 
 </style>
