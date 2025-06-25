@@ -3347,23 +3347,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\yamada\\.nuget\\packages\\": {},
+    "C:\\Users\\yu.terauchi\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\yamada\\source\\repos\\vue-kintai\\vue-kintai\\vue-kintai.csproj",
+      "projectUniqueName": "C:\\Users\\yu.terauchi\\Desktop\\vue-kintai\\vue-kintai\\vue-kintai.csproj",
       "projectName": "vue-kintai",
-      "projectPath": "C:\\Users\\yamada\\source\\repos\\vue-kintai\\vue-kintai\\vue-kintai.csproj",
-      "packagesPath": "C:\\Users\\yamada\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\yamada\\source\\repos\\vue-kintai\\vue-kintai\\obj\\",
+      "projectPath": "C:\\Users\\yu.terauchi\\Desktop\\vue-kintai\\vue-kintai\\vue-kintai.csproj",
+      "packagesPath": "C:\\Users\\yu.terauchi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\yu.terauchi\\Desktop\\vue-kintai\\vue-kintai\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\yamada\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\yu.terauchi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3372,7 +3372,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3391,7 +3390,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net9.0": {
@@ -3427,12 +3426,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.Net.Sdk.Compilers.Toolset",
-            "version": "[9.0.301, 9.0.301]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -3441,7 +3434,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
