@@ -13,3 +13,20 @@ obj/
 *.exe
 *.dll
 *.pdb
+
+# ASP.NET Core
+bin/
+obj/
+*.user
+*.suo
+*.log
+
+# Vue.js
+node_modules/
+dist/
+.env
+*.lock
+
+# IDE/Editor
+.vscode/
+.idea/
