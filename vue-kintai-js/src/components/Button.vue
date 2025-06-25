@@ -3,7 +3,7 @@
     <button 
       class="clockin-button"
       :disabled="!selectedName"
-      @click="sendClockIn"
+      @click="sendClockIn()"
     >
       出勤
     </button>
@@ -26,6 +26,16 @@ const props = defineProps({
 const submitted = ref(false)
 
 const sendClockIn = async () => {
+
+  const allDate = new Date()
+  const month = allDate.getMonth() + 1 // 月は0から始まるため+1
+  const day = allDate.getDate() // 日を取得
+  const hours = allDate.getHours() // 時間を取得
+  const minutes = allDate.getMinutes() // 分を取得
+  const date = month + '/' + day 
+  const time = hours + ':' + (minutes < 10 ? '0' + minutes : minutes) // 分が1桁の場合は0を追加
+  
+
   try {
     await axios.post('https://example.com/api/clockin', {
       name: props.selectedName,
