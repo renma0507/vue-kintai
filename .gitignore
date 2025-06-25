@@ -1,5 +1,5 @@
 .vs/
-vue-test1-2d4c2-firebase-adminsdk-fbsvc-f95bf5bb51.json/
+
 *.json
 # Firebase secret key
 **/*.json
@@ -13,3 +13,20 @@ obj/
 *.exe
 *.dll
 *.pdb
+
+# ASP.NET Core
+bin/
+obj/
+*.user
+*.suo
+*.log
+
+# Vue.js
+node_modules/
+dist/
+.env
+*.lock
+
+# IDE/Editor
+.vscode/
+.idea/
