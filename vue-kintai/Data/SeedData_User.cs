@@ -9,21 +9,22 @@ namespace vue_kintai.Data
             if (!context.User.Any())
             {
                 //ユーザー情報と連結する属性を作成
-                var user = new User
+                var user1 = new User
                 {
                     Name = "山田",
                     Employ = "syain",
-                    AttendTime = new AttendTime
-                    {
-                        Status = "attend",
-                        Date = "2025/06/21",
-                        Time = "11:00",
-
-                    }
 
                 };
+                var attend1 = new AttendTime
+                {
+                   
+                    Status = "attend",
+                    Date = "06/22",
+                    Time = "11:00"
+                };
 
-                context.User.Add(user); // 従業員と出退勤時間をセット
+                context.User.Add(user1); // 従業員と出退勤時間をセット
+                context.AttendTime.Add(attend1);
                 context.SaveChanges(); // データベースに保存
             }
         }

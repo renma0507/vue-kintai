@@ -18,7 +18,10 @@
 <script setup>
 import { ref } from 'vue'
 import axios from 'axios'
+import { definedProps } from './List.vue'
 
+const props = defineProps(['selectedNumber'])
+console.log(props)
 const allDate = new Date()
 const selectedName = ref('')
 const userId = ref('')
@@ -35,7 +38,7 @@ const sendClockIn = async () => {
   const time = hours + ':' + (minutes < 10 ? '0' + minutes : minutes) // 分が1桁の場合は0を追加
   const status = 'attend'
   const payload= {
-    userId: 1,
+    userId: selectedNumber,
     status : 'attend',
     date : date,
     time : time
@@ -47,7 +50,7 @@ const sendClockIn = async () => {
   })
      alert('出勤情報を送信しました')
     userId.value = ''
-    selectedName.value = ''
+    status.value = ''
     date = ''
     time= ''
     submitted.value = true

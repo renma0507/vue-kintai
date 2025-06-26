@@ -1,6 +1,6 @@
 <template>
   <main>
-    <List />
+    <List selectedNumber />
     <Clook />
     <Log />
 
