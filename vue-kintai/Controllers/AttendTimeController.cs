@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace vue_kintai.Controllers
 {
-    [Route("vue-kintai / [controller]")]
+    [Route("vue-kintai/[controller]")]
     [ApiController]
     public class AttendTimeController : ControllerBase
     {

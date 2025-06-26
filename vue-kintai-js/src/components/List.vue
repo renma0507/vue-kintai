@@ -1,49 +1,34 @@
 
 <script setup>
-import { ref, computed ,onMounted} from 'vue'
-import axios  from 'axios'
-
-// 社員データ
+import { ref, computed, onMounted, watch } from 'vue'
+import axios from 'axios'
+import { defineEmits } from 'vue'
 const employees = ref([])
-
 const selectedName = ref('')
-
+const emit = defineEmits(['update-selected'])
 const getData = async () => {
-  try{
-  const res = await axios.get('https://localhost:55925/vue-kintai / User')
-  employees.value = res.data.$values//結果を表示用に代入
-  console.log('データの取得に成功しました:', employees.value)
-} catch (error) {
-  console.error('データの取得に失敗しました:', error)
+  try {
+    const res = await axios.get('https://localhost:55925/vue-kintai/User')
+    employees.value = res.data.$values
+  } catch (error) {
+    console.error('データ取得失敗:', error)
   }
-
 }
-
 const selectedEmployee = computed(() => {
   if (!Array.isArray(employees.value)) return null
   return employees.value.find(emp => emp.name === selectedName.value)
 })
-
-
+watch(selectedName, (newVal) => {
+  emit('update-selected', newVal)
+})
 onMounted(getData)
 </script>
-
 <template>
-  <div class="employee-select">
-    <h1>社員リスト</h1>
-    <div class="custom-select-wrapper">
-      <select v-model="selectedName" size="10">
-        <option v-for="emp in employees" :key="emp.id" >
-          {{ emp.name }}
-        </option>
-      </select>
-    </div>
-    <div v-if="selectedEmployee" class="employee-info">
-      <p>雇用形態: {{ selectedEmployee.employ }}</p>
-      
-    </div>
+  <div>
+    <select v-model="selectedName" size="10">
+      <option v-for="emp in employees" :key="emp.id">{{ emp.name }}</option>
+    </select>
   </div>
-  <Button :selectedNumber="2" />
 </template>
 
 

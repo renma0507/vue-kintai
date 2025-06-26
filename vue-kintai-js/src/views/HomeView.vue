@@ -1,12 +1,12 @@
 <template>
   <main>
-    <List selectedNumber />
+    <List  />
     <Clook />
     <Log />
 
     <!-- ボタンをまとめてスタイリングしやすく -->
     <div class="button-group">
-      <Button />
+      <Button v-bind:user-id="selectNumber" />
       <Button2 /> 
     </div>
     <div class="button-group2">
