@@ -24,6 +24,7 @@ const selectedEmployee = computed(() => {
   return employees.value.find(emp => emp.name === selectedName.value)
 })
 
+
 onMounted(getData)
 </script>
 
@@ -38,10 +39,11 @@ onMounted(getData)
       </select>
     </div>
     <div v-if="selectedEmployee" class="employee-info">
-      <p>雇用形態: {{ selectedEmployee.name }}</p>
+      <p>雇用形態: {{ selectedEmployee.employ }}</p>
+      
     </div>
   </div>
-
+  <Button :selectedNumber="2" />
 </template>
 
 

@@ -13,10 +13,18 @@ namespace vue_kintai.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>()
-                .HasOne(u => u.AttendTime)
+                .HasMany(u => u.AttendTime)
                 .WithOne(p => p.User)
-                .HasForeignKey<AttendTime>(p => p.UserId);
+                .HasForeignKey(p => p.UserId);
 
+            }
+            //protected override void OnModelCreating(ModelBuilder modelBuilder)
+            //{
+            //    modelBuilder.Entity<AttendTime>()
+            //        .HasOne(u => u.User)
+            //        .WithMany(p => p.AttendTime)
+            //        .HasForeignKey(p => p.UserId);
+
+            //}
         }
     }
-}

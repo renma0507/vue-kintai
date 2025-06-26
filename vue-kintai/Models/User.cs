@@ -1,4 +1,6 @@
 ﻿
+using System.Text.Json.Serialization;
+
 namespace vue_kintai.Models
 {
     public class User
@@ -8,7 +10,8 @@ namespace vue_kintai.Models
         public string Name { get; set; }
         public string Employ { get; set; }
 
-        public AttendTime AttendTime { get; set; }
+        [JsonIgnore]
+        public ICollection<AttendTime>? AttendTime { get; set; }
 
     }
 }
