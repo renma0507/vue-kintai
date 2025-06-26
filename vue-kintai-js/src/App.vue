@@ -91,7 +91,7 @@ nav a:first-of-type {
   
   position: fixed;
   bottom: 30px;
-  left: 50%;
+  left: 100%;
   gap: 50px;
   transform: translateX(-50%);
   z-index: 1000;
