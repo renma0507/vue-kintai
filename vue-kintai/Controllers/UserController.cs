@@ -4,7 +4,7 @@ using vue_kintai.Models;
 
 namespace vue_kintai.Controllers
 {
-    [Route("vue-kintai / [controller]")]
+    [Route("vue-kintai/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {

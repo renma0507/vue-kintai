@@ -8,16 +8,12 @@ import Button from './components/Button.vue'
 import Button2 from './components/Button2.vue'
 import Button3 from './components/Button3.vue'
 import Button4 from './components/Button4.vue'
-
+import { ref } from 'vue'
 </script>
-
-
-  
-  
 <template>
   <div class="link-container">
-    <link class="linklink"><RouterLink to="/Home">ホーム画面へ</RouterLink></link>
-    <link class="linklink"><RouterLink to="/kanri">管理画面へ</RouterLink></link>
+    <div class="linklink"><RouterLink to="/Home">ホーム画面へ</RouterLink></div>
+    <div class="linklink"><RouterLink to="/kanri">管理画面へ</RouterLink></div>
   </div>
   <RouterView/>
 </template>

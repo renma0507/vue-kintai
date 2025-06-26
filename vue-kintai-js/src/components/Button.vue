@@ -1,62 +1,50 @@
+  から  全員
 <template>
   <div class="clockin-wrapper">
-    <button 
-      class="clockin-button"
-
-      @click="sendClockIn"
-    >
+    <button class="clockin-button" @click="sendClockIn">
       出勤
     </button>
-
     <p v-if="submitted">
-      {{ selectedName }}さんが {{ currentTime }} に出勤しました。
+      {{ userId }} さんが {{ currentTime }} に出勤しました。
     </p>
   </div>
-  <!-- ボタンのところにdisabledを入れたい -->
 </template>
-
 <script setup>
 import { ref } from 'vue'
 import axios from 'axios'
-import { definedProps } from './List.vue'
-
-const props = defineProps(['selectedNumber'])
-console.log(props)
-const allDate = new Date()
-const selectedName = ref('')
-const userId = ref('')
-
+import { defineProps } from 'vue'
+const props = defineProps({
+  selectedName: String,
+  userId: Number
+})
+const userId = ref() 
 const submitted = ref(false)
-
+const currentTime = ref('')
 const sendClockIn = async () => {
-  console.log('出勤ボタンがクリックされました')
-  const month = allDate.getMonth() + 1 // 月は0から始まるため+1
-  const day = allDate.getDate() // 日を取得
-  const hours = allDate.getHours() // 時間を取得
-  const minutes = allDate.getMinutes() // 分を取得
-  const date = month + '/' + day 
-  const time = hours + ':' + (minutes < 10 ? '0' + minutes : minutes) // 分が1桁の場合は0を追加
-  const status = 'attend'
-  const payload= {
-    userId: selectedNumber,
-    status : 'attend',
-    date : date,
-    time : time
+console.log('出勤ボタンがクリックされました',props.userId)
+  // 日付と時間をフォーマット
+  const now = new Date()
+  const date = now.toISOString().split('T')[0] // 'YYYY-MM-DD'
+  const time = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`
+  const payload = {
+    userId: props.userId,     // 整数型
+    status: 'attend',         // 文字列型
+    date: date,               // YYYY-MM-DD
+    time: time                // HH:mm
   }
- console.log('送信するデータ:', payload)
+  console.log('送信データ:', JSON.stringify(payload, null, 2))
   try {
-    await axios.post('https://localhost:55925/vue-kintai / AttendTime', payload,{
-    headers: { 'Content-Type': 'application/json' }
-  })
-     alert('出勤情報を送信しました')
-    userId.value = ''
-    status.value = ''
-    date = ''
-    time= ''
+    await axios.post('https://localhost:55925/vue-kintai/AttendTime', payload, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    alert('出勤成功')
     submitted.value = true
-    console.log('出勤情報送信成功')
+    currentTime.value = time
   } catch (e) {
-    console.error('送信失敗', e)
+    console.error('送信失敗:', e.response?.data || e.message)
+    alert('出勤に失敗しました')
   }
 }
 </script>
