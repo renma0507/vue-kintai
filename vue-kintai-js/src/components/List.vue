@@ -24,13 +24,14 @@ watch(selectedName, (newVal) => {
 onMounted(getData)
 </script>
 <template>
-  <div>
-    <select v-model="selectedName" size="10" >
+  <div class="employee-select">
+    <select class="employee-info" v-model="selectedName" size="10" >
       <option v-for="emp in employees" :key="emp.id">{{ emp.name }}</option>
     </select>
+    <p class="employee-info">雇用形態　：{{ selectedEmployee?.employ }}</p>
   </div>
 
-  <Button  />
+
 
 </template>
 
@@ -69,6 +70,9 @@ h1{
   padding: 0.8rem;
   border: 10px solid red;
   border: 10px;
+  width: 100%;
+  font-size: 25px;
+  
 }
 select{
 color: rgb(0, 0, 0);

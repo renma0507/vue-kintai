@@ -1,15 +1,10 @@
 <template>
   <div class="clockin-wrapper">
-    <button 
-      class="clockin-button"
-      :disabled="!selectedName"
-      @click="sendClockIn"
-    >
-      退勤
+    <button class="clockin-button" @click="sendClockIn">
+      出勤
     </button>
-
     <p v-if="submitted">
-      {{ selectedName }}さんが {{ currentTime }} に出勤しました。
+      <Log :attendancelog="attendanceLog"/>
     </p>
   </div>
 </template>
@@ -17,24 +12,42 @@
 <script setup>
 import { ref } from 'vue'
 import axios from 'axios'
-
+import { defineProps } from 'vue'
+import Log from '../components/Log.vue'
 const props = defineProps({
   selectedName: String,
-  currentTime: String
+  userId: Number
 })
-
+const userId = ref() 
 const submitted = ref(false)
+const currentTime = ref('')
+const attendanceLog = "出勤"
 
 const sendClockIn = async () => {
+console.log('出勤ボタンがクリックされました',props.userId)
+  // 日付と時間をフォーマット
+  const now = new Date()
+  const date = now.toISOString().split('T')[0] // 'YYYY-MM-DD'
+  const time = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`
+  const payload = {
+    userId: 1,     // 整数型
+    status: 'attend',         // 文字列型
+    date: date,               // YYYY-MM-DD
+    time: time                // HH:mm
+  }
+  console.log('送信データ:', JSON.stringify(payload, null, 2))
   try {
-    await axios.post('https://example.com/api/clockin', {
-      name: props.selectedName,
-      clockInTime: props.currentTime
+    await axios.post('https://localhost:55925/vue-kintai/AttendTime', payload, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
     })
+    alert('出勤成功')
     submitted.value = true
-    console.log('出勤情報送信成功')
+    currentTime.value = time
   } catch (e) {
-    console.error('送信失敗', e)
+    console.error('送信失敗:', e.response?.data || e.message)
+    alert('出勤に失敗しました')
   }
 }
 </script>

@@ -2,7 +2,8 @@
   <main>
     <List  />
     <Clook />
-    <Log />
+    <div class="log-container">
+    </div>
 
     <!-- ボタンをまとめてスタイリングしやすく -->
     <div class="button-group">
@@ -78,4 +79,16 @@ import Button4 from '../components/Button4.vue'
   transform: scale(1.05);
 }
 
+.log-container {
+  position: fixed;            
+  top: 0;
+  right: 0;
+  height: 600vh;              
+  width: 300px;               
+  background-color: gray;
+  border-right: 2px solid #f9f9f9;
+  padding: 1rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
 </style>

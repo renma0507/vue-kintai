@@ -1,6 +1,37 @@
+
+
+<script setup>
+import { ref , onMounted } from 'vue'
+
+const attendanceLog = ref([])
+const errorLog = ref([])
+const props = defineProps(['attendancelog'])
+const now = new Date()
+const time = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`
+
+console.log('props.attendancelog:', props.attendancelog)
+const getAttendanceLog = async () => {
+    try {
+        attendanceLog.value = props.attendancelog
+        console.log('出退勤ログ:', attendanceLog)
+    } catch (error) {
+        console.error('出退勤ログの取得失敗:', error)
+    }
+}
+getAttendanceLog()
+
+</script>
+
 <template>
     <div>
         <h1>出退勤ログ</h1>
+         {{ time }} {{ props.attendancelog }}ました
+        <!-- <ul>
+            <li v-for="log in attendanceLog" :key="log.id">
+               {{ props.attendancelog }}しました
+            </li>
+        </ul> -->
+        <br><br>
         <h1>エラーログ</h1>
     </div>
 </template>
