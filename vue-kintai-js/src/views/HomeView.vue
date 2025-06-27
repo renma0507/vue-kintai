@@ -6,7 +6,7 @@
 
     <!-- ボタンをまとめてスタイリングしやすく -->
     <div class="button-group">
-      <Button v-bind:user-id="selectNumber" />
+      <Button  />
       <Button2 /> 
     </div>
     <div class="button-group2">

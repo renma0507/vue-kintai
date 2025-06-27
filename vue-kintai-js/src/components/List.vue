@@ -25,10 +25,13 @@ onMounted(getData)
 </script>
 <template>
   <div>
-    <select v-model="selectedName" size="10">
+    <select v-model="selectedName" size="10" >
       <option v-for="emp in employees" :key="emp.id">{{ emp.name }}</option>
     </select>
   </div>
+
+  <Button  />
+
 </template>
 
 

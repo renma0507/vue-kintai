@@ -1,5 +1,6 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed ,onMounted } from 'vue'
+import axios from 'axios'
 import List from '../components/List.vue'
 
 const attendanceList = ref([
@@ -13,6 +14,16 @@ const attendanceList = ref([
   }
 ])
 
+const getData = async () => {
+  try {
+    const res = await axios.get('https://localhost:55925/vue-kintai/User')
+    employees.value = res.data.$values
+  } catch (error) {
+    console.error('データ取得失敗:', error)
+  }
+}
+
+onMounted(getData)
 const selectedName = ref('')
 const selectedDate = ref('2025-06-24')
 
