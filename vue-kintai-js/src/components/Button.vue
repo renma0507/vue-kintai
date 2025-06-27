@@ -1,18 +1,19 @@
-  から  全員
 <template>
   <div class="clockin-wrapper">
     <button class="clockin-button" @click="sendClockIn">
       出勤
     </button>
     <p v-if="submitted">
-      {{ userId }} さんが {{ currentTime }} に出勤しました。
+      <Log :attendancelog="attendanceLog"/>
     </p>
   </div>
 </template>
+
 <script setup>
 import { ref } from 'vue'
 import axios from 'axios'
 import { defineProps } from 'vue'
+import Log from '../components/Log.vue'
 const props = defineProps({
   selectedName: String,
   userId: Number
@@ -20,6 +21,8 @@ const props = defineProps({
 const userId = ref() 
 const submitted = ref(false)
 const currentTime = ref('')
+const attendanceLog = "出勤"
+
 const sendClockIn = async () => {
 console.log('出勤ボタンがクリックされました',props.userId)
   // 日付と時間をフォーマット
@@ -27,7 +30,7 @@ console.log('出勤ボタンがクリックされました',props.userId)
   const date = now.toISOString().split('T')[0] // 'YYYY-MM-DD'
   const time = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`
   const payload = {
-    userId: props.userId,     // 整数型
+    userId: 1,     // 整数型
     status: 'attend',         // 文字列型
     date: date,               // YYYY-MM-DD
     time: time                // HH:mm
