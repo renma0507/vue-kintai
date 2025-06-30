@@ -1,11 +1,14 @@
 
 <script setup>
-import { ref, computed, onMounted, watch } from 'vue'
+import { ref, computed, onMounted, watch, } from 'vue'
 import axios from 'axios'
-import { defineEmits } from 'vue'
+import { defineEmits , } from 'vue'
+
 const employees = ref([])
 const selectedName = ref('')
 const emit = defineEmits(['update-selected'])
+
+
 const getData = async () => {
   try {
     const res = await axios.get('https://localhost:55925/vue-kintai/User')
@@ -14,21 +17,23 @@ const getData = async () => {
     console.error('データ取得失敗:', error)
   }
 }
-const selectedEmployee = computed(() => {
+const selectedEmployee = computed(() => { 
   if (!Array.isArray(employees.value)) return null
   return employees.value.find(emp => emp.name === selectedName.value)
 })
 watch(selectedName, (newVal) => {
   emit('update-selected', newVal)
 })
+
+
 onMounted(getData)
 </script>
 <template>
   <div class="employee-select">
-    <select class="employee-info" v-model="selectedName" size="10" >
-      <option v-for="emp in employees" :key="emp.id">{{ emp.name }}</option>
+    <select  class="employee-info" v-model="selectedName" size="10" >
+      <option  v-for="emp in employees" :key="emp.id">{{ emp.name }}</option>
     </select>
-    <p class="employee-info">雇用形態　：{{ selectedEmployee?.employ }}</p>
+    <p class="employee-info">雇用形態：{{ selectedEmployee?.employ }}</p>
   </div>
 
 

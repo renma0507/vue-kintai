@@ -10,7 +10,7 @@ namespace vue_kintai.Data
                 var user = new User
                 {
                     Name = "山田",
-                    Employ = "syain",
+                    Employ = "社員",
                     AttendTimes = new List<AttendTime>
                     {
                         new AttendTime

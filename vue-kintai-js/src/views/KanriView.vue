@@ -3,6 +3,9 @@ import { ref, computed ,onMounted } from 'vue'
 import axios from 'axios'
 import List from '../components/List.vue'
 
+
+const employees = ref([])
+
 const attendanceList = ref([
   {
     name: '山田 太郎',
@@ -13,7 +16,7 @@ const attendanceList = ref([
     breakEnd: '13:00',
   }
 ])
-
+ console.log('attendanceList:', attendanceList.value)
 const getData = async () => {
   try {
     const res = await axios.get('https://localhost:55925/vue-kintai/User')
@@ -21,6 +24,10 @@ const getData = async () => {
   } catch (error) {
     console.error('データ取得失敗:', error)
   }
+}
+
+const change = () => {
+  JSON.stringify(attendanceList.value, null, 2)
 }
 
 onMounted(getData)
@@ -54,14 +61,10 @@ function applyEdits() {
   
   
       <List/>
- 
-
-    <!-- メインエリア -->
-    <div class="main">
-      <!-- 日付 -->
+    <div>
       <div class="date-input" >
         <!-- <label>日付:</label> -->
-        <input type="date" v-model="selectedDate" class="date"/>
+        <input type="date" @click="selectedDate" v-model="selectedDate" class="date"/>
       </div>
 
 
@@ -73,10 +76,11 @@ function applyEdits() {
           </thead>
           <tbody>
             <tr>
-              <td>{{ selectedRecord?.startTime || '-' }}</td>
-              <td>{{ selectedRecord?.endTime || '-' }}</td>
-              <td>{{ selectedRecord?.breakStart || '-' }}</td>
-              <td>{{ selectedRecord?.breakEnd || '-' }}</td>
+              <td>09:00</td>
+              <td>17:00</td>
+              <td>13:00</td>
+              <td>14:00</td>
+
             </tr>
           </tbody>
         </table>
@@ -87,10 +91,10 @@ function applyEdits() {
           </thead>
           <tbody>
             <tr>
-              <td><input type="time" class="bigtime"v-model="editedTime.startTime" /></td>
-              <td><input type="time"  class="bigtime"v-model="editedTime.endTime" /></td>
-              <td><input type="time"  class="bigtime"v-model="editedTime.breakStart" /></td>
-              <td><input type="time" class="bigtime" v-model="editedTime.breakEnd" /></td>
+              <td><input type="time"  class="bigtime"v-model="editedTime.startTime" value="09:00"  /></td>
+              <td><input type="time"  class="bigtime"v-model="editedTime.endTime" value="17:00" /></td>
+              <td><input type="time"  class="bigtime"v-model="editedTime.breakStart" value="13:00" /></td>
+              <td><input type="time"  class="bigtime"v-model="editedTime.breakEnd" value="14:00" /></td>
             </tr>
           </tbody>
         </table>
