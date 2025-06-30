@@ -21,7 +21,7 @@ const props = defineProps({
 const userId = ref() 
 const submitted = ref(false)
 const currentTime = ref('')
-const attendanceLog = "休憩"
+const attendanceLog = "休憩入り"
 
 const sendClockIn = async () => {
 console.log('休憩ボタンがクリックされました',props.userId)
@@ -42,12 +42,12 @@ console.log('休憩ボタンがクリックされました',props.userId)
         'Content-Type': 'application/json'
       }
     })
-    alert('出勤成功')
+    alert('休憩成功')
     submitted.value = true
     currentTime.value = time
   } catch (e) {
     console.error('送信失敗:', e.response?.data || e.message)
-    alert('出勤に失敗しました')
+    alert('休憩に失敗しました')
   }
 }
 </script>

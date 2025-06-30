@@ -42,7 +42,7 @@ console.log('戻りボタンがクリックされました',props.userId)
         'Content-Type': 'application/json'
       }
     })
-    alert('戻りました')
+    alert('戻り成功')
     submitted.value = true
     currentTime.value = time
   } catch (e) {

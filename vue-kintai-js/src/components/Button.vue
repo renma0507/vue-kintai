@@ -21,7 +21,7 @@ const props = defineProps({
 const userId = ref() 
 const submitted = ref(false)
 const currentTime = ref('')
-const attendanceLog = "出勤"
+const attendanceLog = "出勤し"
 
 const sendClockIn = async () => {
 console.log('出勤ボタンがクリックされました',props.userId)

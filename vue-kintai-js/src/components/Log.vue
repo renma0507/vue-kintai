@@ -13,7 +13,7 @@ console.log('props.attendancelog:', props.attendancelog)
 const getAttendanceLog = async () => {
     try {
         attendanceLog.value = props.attendancelog
-        console.log('出退勤ログ:', attendanceLog)
+        console.log('出退勤ログ:', attendanceLog.value)
     } catch (error) {
         console.error('出退勤ログの取得失敗:', error)
     }
@@ -28,7 +28,7 @@ getAttendanceLog()
          {{ time }} {{ props.attendancelog }}ました
         <!-- <ul>
             <li v-for="log in attendanceLog" :key="log.id">
-               {{ props.attendancelog }}しました
+               {{ time }} {{ log }}ました
             </li>
         </ul> -->
         <br><br>

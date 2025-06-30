@@ -1,7 +1,7 @@
 <template>
   <div class="clockin-wrapper">
     <button class="clockin-button" @click="sendClockIn">
-      出勤
+      退勤
     </button>
     <p v-if="submitted">
       <Log :attendancelog="attendanceLog"/>
@@ -21,17 +21,17 @@ const props = defineProps({
 const userId = ref() 
 const submitted = ref(false)
 const currentTime = ref('')
-const attendanceLog = "出勤"
+const attendanceLog = "退勤し"
 
 const sendClockIn = async () => {
-console.log('出勤ボタンがクリックされました',props.userId)
+console.log('退勤ボタンがクリックされました',props.userId)
   // 日付と時間をフォーマット
   const now = new Date()
   const date = now.toISOString().split('T')[0] // 'YYYY-MM-DD'
   const time = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`
   const payload = {
     userId: 1,     // 整数型
-    status: 'attend',         // 文字列型
+    status: 'leave',         // 文字列型
     date: date,               // YYYY-MM-DD
     time: time                // HH:mm
   }
@@ -42,12 +42,12 @@ console.log('出勤ボタンがクリックされました',props.userId)
         'Content-Type': 'application/json'
       }
     })
-    alert('出勤成功')
+    alert('退勤成功')
     submitted.value = true
     currentTime.value = time
   } catch (e) {
     console.error('送信失敗:', e.response?.data || e.message)
-    alert('出勤に失敗しました')
+    alert('退勤に失敗しました')
   }
 }
 </script>
